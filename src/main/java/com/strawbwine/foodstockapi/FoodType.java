@@ -40,7 +40,7 @@ class FoodType {
     @Column(
             name="created_time"
     )
-    private Instant createdTime;
+    private Instant createdTime = Instant.now();
 
     public FoodType() {
     }
@@ -50,7 +50,6 @@ class FoodType {
         this.kcalPerHundredGrams = kcalPerHundredGrams;
         this.weightInGrams = weightInGrams;
         this.description = description;
-        this.createdTime = Instant.now();
     }
 
     public long getId() {
