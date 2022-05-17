@@ -14,12 +14,12 @@ public class FoodStockApiApplication {
 		SpringApplication.run(FoodStockApiApplication.class, args);
 	}
 
-	@Bean
-	CommandLineRunner commandLineRunner(FoodTypeRepository foodTypeRepository) {
-		return args -> {
-			FoodType pizza = new FoodType("Pizza", 250, 550, "A delicious pizza");
-			foodTypeRepository.save(pizza);
-		};
-	}
+//	@Bean
+//	CommandLineRunner commandLineRunner(FoodTypeRepository foodTypeRepository) {
+//		return args -> {
+//			FoodType pizza = new FoodType("Pizza", 250, 550, "A delicious pizza");
+//			foodTypeRepository.save(pizza);
+//		};
+//	}
 
 }
