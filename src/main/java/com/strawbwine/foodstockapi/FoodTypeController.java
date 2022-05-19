@@ -23,4 +23,10 @@ public class FoodTypeController {
     FoodType newFoodType(@RequestBody FoodType newFoodType) {
         return repository.save(newFoodType);
     }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @DeleteMapping("/foodtypes/{id}")
+    void deleteFoodType(@PathVariable Long id) {
+        repository.deleteById(id);
+    }
 }
