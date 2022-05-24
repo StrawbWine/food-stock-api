@@ -1,9 +1,13 @@
 package com.strawbwine.foodstockapi;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.time.Instant;
+import java.util.List;
 
 @Entity
+@Table(name = "food_type")
 class FoodType {
     @Id
     @SequenceGenerator(
@@ -40,7 +44,10 @@ class FoodType {
     @Column(
             name="created_time"
     )
-    private Instant createdTime = Instant.now();
+    private final Instant createdTime = Instant.now();
+    @JsonIgnore
+    @OneToMany(mappedBy = "foodType", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<FoodInstance> instances;
 
     public FoodType() {
     }
@@ -94,5 +101,13 @@ class FoodType {
 
     public Instant getCreatedTime() {
         return createdTime;
+    }
+
+    public List<FoodInstance> getInstances() {
+        return instances;
+    }
+
+    public void setInstances(List<FoodInstance> instances) {
+        this.instances = instances;
     }
 }
