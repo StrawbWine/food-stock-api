@@ -28,7 +28,7 @@ public class FoodInstance {
     @JsonIgnore
     @ManyToOne
     @JoinColumn(
-            name="food_type_name",
+            name="food_type_id",
             nullable = false
     )
     private FoodType foodType;
