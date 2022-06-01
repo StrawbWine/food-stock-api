@@ -30,6 +30,11 @@ class FoodType {
     )
     private String name;
     @Column(
+            name="foodGroup",
+            nullable = false
+    )
+    private String foodGroup;
+    @Column(
             name="kcal_per_hundred_grams"
     )
     private int kcalPerHundredGrams;
@@ -52,8 +57,9 @@ class FoodType {
     public FoodType() {
     }
 
-    public FoodType(String name, int kcalPerHundredGrams, int weightInGrams, String description) {
+    public FoodType(String name, String foodGroup, int kcalPerHundredGrams, int weightInGrams, String description) {
         this.name = name;
+        this.foodGroup = foodGroup;
         this.kcalPerHundredGrams = kcalPerHundredGrams;
         this.weightInGrams = weightInGrams;
         this.description = description;
@@ -73,6 +79,14 @@ class FoodType {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getFoodGroup() {
+        return foodGroup;
+    }
+
+    public void setFoodGroup(String foodGroup) {
+        this.foodGroup = foodGroup;
     }
 
     public int getKcalPerHundredGrams() {
